@@ -1,0 +1,298 @@
+body{
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding:0px;
+}
+#tabelaMeni{
+  border-collapse: collapse;
+  border-style:none;
+}
+#zaglavlje {
+  background-color: #ffad33;
+  margin: auto;
+  height: 175px;
+  width: 100%;
+  position: relative;
+}
+#tabelarniNaslov>h1{
+  color: #ede9ce;
+  margin-left: 50px;
+  font-size: 42px;
+  margin-top: 20px;
+  margin-bottom: auto;
+  margin-left: auto;
+  margin-right: auto;
+}
+#meniDugme{
+  margin-top: 17px;
+  margin-right: -4px;
+  background-color: white; 
+  padding: 27px 44px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 28px;
+}
+#meniDugme>a{
+  text-transform: uppercase;
+  color: black;
+  font-family: Georgia;
+  text-decoration: none;
+}
+button:hover{
+  background-color: #e9ece1;
+}
+.okvir {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding:0px;
+  position:relative;
+}
+#naslovnaSlika{
+  position:absolute;
+    width: 100%;
+    height: 400px;
+    background-image: url('http://i.imgur.com/EjbetLD.jpg');
+    background-size: 100% 100%;
+}
+#centralnaForma{
+  width: 50%;
+  height: 1110px;
+  position:absolute;
+  margin-left:27%;
+  margin-right: 24%;
+  margin-top: 25px;
+  margin-bottom: auto;
+  z-index:10;
+  background-color: #e9ece1;
+  border: 1px solid black;
+}
+#footer{
+  position: relative;
+  right: 0;
+  top: 1119px;
+  left: 0;
+  padding: 1rem;
+  background-color: #ffad33;
+  color: white;
+  text-align: center;
+}
+/*naslovnica*/
+#novost1{
+  width: 96%;
+  margin-left:2%;
+  margin-right:2%;
+  margin-top:2%;
+  border: 1px solid black;
+  position: absolute;
+  background-color: white;
+}
+#novost2{
+  width: 96%;
+  margin-left:2%;
+  margin-right:2%;
+  margin-top:37%;
+  border: 1px solid black;
+  position: absolute;
+  background-color: white
+}
+#novost3{
+  width: 96%;
+  height: auto;
+  margin-left:2%;
+  margin-right:2%;
+  margin-top:80%;
+  margin-bottom: auto;
+  border: 1px solid black;
+  position: absolute;
+  background-color: white 
+}
+#lijevi{
+  width: 10%;
+  margin-left: 1%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  float: left;
+  vertical-align: center;
+}
+#lijeviPamuk{
+  width: 10%;
+  margin-left: 8px;
+  margin-top: 80px;
+  margin-bottom: 10px;
+  float: left;
+  vertical-align: center; 
+}
+#desni>p{
+  width: 50%;
+  float: right;
+  font-size: 19px;
+  margin-right: 1%;
+  margin-left: 2%;
+  margin-top: 2%;
+  margin-bottom: auto;
+  text-align: justify;
+}
+h2{
+  text-align: center;
+  width: 50%;
+  float: right;
+  margin-left: auto;
+  margin-right: 1%;
+  margin-top: 1%;
+  margin-bottom: auto;
+  font-size: 22px;
+}
+/*Stanica sa tabelom-događaji*/
+#glavniDogadaji>h1{
+  color: red;
+}
+#tabelaDogadaja{
+  width: 80%;
+  height: auto;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+  border-color: #ffad33;
+  background-color: #ffad33;
+  font-family: Georgia;
+  font-size: 20px;
+  position: relative;
+}
+#prviRed{
+  height: 30px
+   font-family: Georgia;
+  font-size: 25px;
+  background-color: #e62739;
+}
+
+#tabelaDogadaja tr:nth-child(even){
+  background-color: #eee;
+}
+#centralnaForma>h1{
+  color: black;
+}
+
+/*stranica sa linkovima*/
+#listaLinkova>li:hover{
+  list-style-image:url('https://cdn2.iconfinder.com/data/icons/windows-8-metro-style/26/book_stack.png');
+}
+p{
+  font-family: Georgia;
+  color: #804d00;
+  font-size: 25px;
+}
+#listaLinkova>li>a{
+  font-family: Georgia;
+  text-transform: uppercase;
+  color: #804d00;
+  font-size: 25px;
+  margin-left: 1%;
+}
+
+/*kontakt*/
+#loginForma{
+  margin-top: 20%;
+  margin-left: 7%;
+  background: white;
+  width: 40%;
+  font-family: Georgia;
+  position: relative;
+  color: #333;
+  border-radius: 13px 13px;
+}
+#loginForma header {
+  background: #804d00;
+  padding: 20px 50px;
+  color: white;
+  font-size: 1.7em;
+  font-weight: 600px;
+  border-radius: 13px 13px 6px 6px;
+}
+#loginForma label {
+  display: inline-block;
+  margin-left: 7%;
+  margin-top: 30px;
+  margin-bottom: 5px;
+  position: relative;
+}
+#loginForma input {
+  position: relative;
+  display: block;
+  width: 78%;
+  margin-left: 7%;
+  margin-right: auto;
+  padding: 5px;
+  font-size: 1.9em;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #ccc;
+}
+#loginForma input.dugme {
+  font-family: Georgia;
+  color: white;
+  background: #804d00;
+  position: relative;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1.4em;
+  width:50%;
+  margin-top: 6%;
+  margin-bottom: auto;
+  left: 20%;
+  padding: 5px 20px;
+}
+#loginForma input.dugme:hover {
+ background: #331f00;
+}
+
+  /*logo CSS*/
+#krug {
+  margin-right: 14px;
+   margin-top: 1%;
+   background-color: #ffad33;
+   font-size: 10em;
+   display: inline-block;
+   width: 0.8em;
+   height: 0.8em;
+   border: 0.04em solid #804d00;
+   position: relative;
+   border-radius: 0.8em;
+}
+.pravaLinija{
+  position: absolute;
+  margin-left: 20px;
+  margin-top: 9px;
+  width: 5px;
+  height: 90px;
+  background: #804d00;
+}
+.poluKrug{
+  position: absolute;
+  margin-left: -32px;
+  margin-top: 9px;
+  width: 100px;
+  height: 90px;
+  border-radius: 50%;
+  box-shadow: 8px 1px 0 0 #804d00;
+}
+.donjaLinija{
+   position: absolute;
+   margin-left: 86px;
+   margin-top: 32px;
+   width: 5px;
+   height: 90px;
+   background: #804d00;
+}
+.donjiPolukrug{
+    position: absolute;
+    margin-left: 30px;
+    margin-top: 32px;
+    width: 90px;
+    height: 30px;
+    border-radius: 50%;
+    box-shadow: 8px 2px 0 0 #804d00;
+}
