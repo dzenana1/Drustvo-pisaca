@@ -8,27 +8,45 @@
 </head>
 <body>
   <?php
-  /*
-  $file = fopen("admin.txt","w");
-echo fwrite($file,md5($_REQUEST['pas']));
-fclose($file);*/
-
-  	$datoteka = file("admin.txt");
+    $veza = new PDO("mysql:dbname=spirala4baza;host=localhost;charset=utf8", "root", "password");
+   	$veza->exec("set names utf8");
+  /*	$datoteka = file("admin.txt");
 		$podaci = explode(",", $datoteka[0]);
 		$ime = $podaci[0];
-		$sifra = $podaci[1];
+		$sifra = $podaci[1];*/
 		$poruka="";
+    $ispravniPodaci=false;
+    $poljaPopunjena=false;
+    if (isset($_POST['prijava'])  && !empty($_POST['korisnickoIme']) && !empty($_POST['pas'])){
+            $poljaPopunjena=true;
+            $ime=$_POST['korisnickoIme'];
+            $sifra = $_POST['pas'];
+            $log = $veza->query("select username, password from korisnici;");
 
-    if (isset($_POST['prijava']) && $_REQUEST['korisnickoIme'] === $ime && md5($_REQUEST['pas'])===$sifra){
-			session_start();
-				$_SESSION['korisnickoIme'] = $ime;
-			header("Location: Novosti.php");  
-	}
-	else if (isset($_POST['prijava'])){
-		$poruka = 'Pogrešan username ili password';
-	}
-
+            foreach($log as $korisnik) {
+         					if($korisnik['username'] == $ime ){//??provjeriti sifru nece fja md5 da heshira kako bi trebalo
+                  // && $korisnik['password']==md5($sifra)) {
+          					$_SESSION['korisnickoIme'] = $ime;
+                    $ispravniPodaci=true;
+         						$poruka="";
+         						break;
+         					}
+         				}
+             if (isset($_POST['prijava']) && !$ispravniPodaci){
+                  $poruka = 'Pogrešan username ili password';
+                 	echo '<script>alert("'.$poruka.'");</script>';
+                }
+	   }
+     elseif (!$poljaPopunjena && isset($_POST['prijava'])) {
+       $poruka="Sva polja nisu popunjena!";
+       	echo '<script>alert("'.$poruka.'");</script>';
+     }
+     if($poljaPopunjena && $ispravniPodaci && isset($_POST['prijava'])){
+       echo '<script>alert("ovdjee");</script>';
+		header("Location: Novosti.php");
+     }
   ?>
+
   <div id="zaglavlje">
     <table id="tabelaMeni">
           <tr>
@@ -48,7 +66,7 @@ fclose($file);*/
             <td><button class="meniDugme"><a href="linkovi.html">Linkovi</a></button></td>
             <td><button class="meniDugme"><a href="kontakt.php">Kontakt</a></button></td>
           </tr>
-        </table>        
+        </table>
   </div>
   <div class="okvir">
     <div id="naslovnaSlika">
