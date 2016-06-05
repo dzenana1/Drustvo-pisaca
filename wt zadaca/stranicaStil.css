@@ -4,6 +4,29 @@ body{
   margin: 0px;
   padding:0px;
 }
+#korisnikPrijava{
+    float: right;
+    margin-right: 0.5%;
+}
+#akcijaPrijava{
+    float: right;
+    margin-right: 5%;
+}
+#akcijaPrijava:hover{
+  text-decoration: underline;
+  color: yellow;
+  cursor: pointer;
+}
+#sredina {
+    margin-left: auto;
+    margin-right: auto;
+    width: 400px;
+    background-color: #ffad33;
+    height: 74%;
+    border: medium solid white;
+    overflow-y: auto;
+    text-align: center;
+}
 #tabelaMeni{
   border-collapse: collapse;
   border-style:none;
@@ -14,7 +37,7 @@ body{
 #zaglavlje {
   background-color: #ffad33;
   margin: auto;
-  height: 175px;
+  height: 240px;
   width: 100%;
   position: relative;
 }
@@ -344,4 +367,15 @@ p{
   font-size: 22px;
   margin-top: 10px;
   margin-left: 50px;
+}
+
+#urediButton{
+    width: 200px;
+    height: 100px;
+    margin-top: 40px;
+    margin-bottom: 20px;
+}
+
+#urediLozinku{
+    margin-top:10px;
 }

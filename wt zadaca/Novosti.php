@@ -34,7 +34,8 @@
 */
   ?>
   <div id="zaglavlje">
-    <table id="tabelaMeni">
+      <p id="akcijaPrijava" onclick="korisnickiRacunKlik()">(Prijavi se)</p><p id="korisnikPrijava">Niste prijavljeni na sistem</p>
+      <table id="tabelaMeni">
           <tr>
             <td rowspan="2">
               <div id="krug">
@@ -48,9 +49,10 @@
           </tr>
           <tr>
             <td><button class="meniDugme"><a href="index.php">Naslovnica</a></button></td>
-            <td><button class="meniDugme"><a href="dogadaji.html">Događaji</a></button></td>
-            <td><button class="meniDugme"><a href="linkovi.html">Linkovi</a></button></td>
+            <td><button class="meniDugme"><a href="dogadaji.php">Događaji</a></button></td>
+            <td><button class="meniDugme"><a href="linkovi.php">Linkovi</a></button></td>
             <td><button class="meniDugme"><a href="kontakt.php">Kontakt</a></button></td>
+              <td><button class="meniDugme"><a href="Profil.php">Profil</a></button></td>
           </tr>
         </table>
   </div>
