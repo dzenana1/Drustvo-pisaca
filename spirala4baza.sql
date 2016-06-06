@@ -68,7 +68,7 @@ CREATE TABLE IF NOT EXISTS `novosti` (
   `naslov` varchar(100) CHARACTER SET utf8 COLLATE utf8_slovenian_ci NOT NULL,
   `text` text CHARACTER SET utf8 COLLATE utf8_slovenian_ci NOT NULL,
   `autorId` int(11) NOT NULL,
-  `datum` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `datum` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `imaNovost` tinyint(1) NOT NULL DEFAULT '0',
   `slika` varchar(200) CHARACTER SET utf16 COLLATE utf16_slovenian_ci DEFAULT NULL,
   `DostupniKomentari` bit(1) NOT NULL DEFAULT b'1',

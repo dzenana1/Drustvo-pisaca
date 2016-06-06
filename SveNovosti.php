@@ -20,7 +20,7 @@ function rest_get ($request, $data)
 {
     $novosti = array();
     $brojac = 0;
-    $konekcija = new mysqli("localhost", "root", "", "spirala4baza");
+    $konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
     $konekcija->set_charset("utf8");
     if ($konekcija->connect_error) {
         die("Nemoguće se povezati sa bazom!" . $konekcija->connect_error);
@@ -74,7 +74,8 @@ function rest_delete ($request)
     $parts = parse_url($request);
     parse_str($parts['query'], $query);
     $idNovost = $query['id'];
-    $konekcija = new mysqli("localhost", "root", "password", "spirala4baza");
+    $konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
+
     $konekcija->set_charset("utf8");
     if ($konekcija->connect_error) {
         die("Nemoguće se povezati sa bazom!" . $konekcija->connect_error);
@@ -94,7 +95,7 @@ function rest_put ($request, $data)
 {
     if (isset($data['naslov']))
     {
-        $konekcija = new mysqli("localhost", "root", "password", "spirala4baza");
+      $konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
         $konekcija->set_charset("utf8");
         if ($konekcija->connect_error) {
             die("Nemoguće se povezati sa bazom!" . $konekcija->connect_error);
@@ -119,7 +120,7 @@ function rest_post ($request, $data)
     {
         if (!empty($data['naslov']) && !empty($data['text']) && !empty($data['slika']))
         {
-            $konekcija = new mysqli("localhost", "root", "password", "spirala4baza");
+          $konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
             $konekcija->set_charset("utf8");
             if ($konekcija->connect_error) {
                 die("Nemoguće se povezati sa bazom!" . $konekcija->connect_error);

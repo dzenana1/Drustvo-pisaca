@@ -17,7 +17,7 @@ function zag ()
 
 function rest_get ($request, $data)
 {
-    $konekcija = new mysqli("localhost", "root", "password", "spirala4baza");
+  $konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
     $konekcija->set_charset("utf8");
     if ($konekcija->connect_error) {
         die("Nemoguće se povezati sa bazom!" . $konekcija->connect_error);
@@ -60,7 +60,7 @@ function rest_post ($request, $data)
             testirajPodatak($username);
             $dodaniPass = $data['psw'];
             testirajPodatak($password);
-            $konekcija = new mysqli("localhost", "root", "password", "spirala4baza");
+            $konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
             $konekcija->set_charset("utf8");
             if ($konekcija->connect_error) {
                 die("Nemoguće se povezati sa bazom!" . $konekcija->connect_error);
@@ -100,7 +100,7 @@ function rest_delete ($request)
 {
     $parts = parse_url($request);
     parse_str($parts['query'], $query);
-    $konekcija = new mysqli("localhost", "root", "password", "spirala4baza");
+    $konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
     $konekcija->set_charset("utf8");
     if ($konekcija->connect_error) {
         die("Nemoguće se povezati sa bazom!" . $konekcija->connect_error);
@@ -122,7 +122,7 @@ function rest_put ($request, $data)
     if (isset($data['editProfile']))
     {
         $ide = $_SESSION['id'];
-        $konekcija = new mysqli("localhost", "root", "password", "spirala4baza");
+        $konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
         $konekcija->set_charset("utf8");
         if ($konekcija->connect_error) {
             die("Nemoguće se povezati sa bazom!" . $konekcija->connect_error);
@@ -147,7 +147,7 @@ function rest_put ($request, $data)
             testirajPodatak($dodaniUsername);
             $dodaniPass = $data['noviPass'];
             testirajPodatak($dodaniPass);
-            $konekcija = new mysqli("localhost", "root", "password", "spirala4baza");
+            $konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
             $konekcija->set_charset("utf8");
             if ($konekcija->connect_error) {
                 die("Nemoguće se povezati sa bazom!" . $konekcija->connect_error);

@@ -15,7 +15,7 @@ $username = $_POST['username'];
 testirajPodatak($username);
 $pass = $_POST['psw'];
 testirajPodatak($pass);
-$konekcija = new mysqli("localhost", "root", "password", "spirala4baza");
+$konekcija = new mysqli("127.6.49.2:3306", "adminRh1ACdR", "q1snynEpG-YK", "spirala4Baza");
 $konekcija->set_charset("utf8");
 
 if ($konekcija->connect_error)

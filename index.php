@@ -45,9 +45,6 @@
 		<option value="3">Mjesečne novosti</option>
       </select>
     <div id="sveNovosti">
-      <div id="footer">
-        <p>Copyright by: Web Tehnologije 2016</p>
-      </div>
     </div>
     </div>
   </div>

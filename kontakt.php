@@ -10,7 +10,7 @@
 </head>
 <body>
   <?php
-    $veza = new PDO("mysql:dbname=spirala4baza;host=localhost;charset=utf8", "root", "password");
+    $veza = new PDO("mysql:dbname=spirala4Baza;host=127.6.49.2:3306;charset=utf8", "adminRh1ACdR", "q1snynEpG-YK");
    	$veza->exec("set names utf8");
   /*	$datoteka = file("admin.txt");
 		$podaci = explode(",", $datoteka[0]);
