@@ -180,30 +180,42 @@ function FiltrirajVrijeme(){
 	var novosti=document.getElementsByClassName("novost");
 	var brojac=0;
 
-
+    var d1 = new Date();
 	for (var i = 0; i < vremena.length; i++) {
-
+        var d2 = new Date(vremena[i].innerHTML);
 		novosti[i].style.display='inline-block';
 			if(odabir==0 ){
 				novosti[i].style.display='inline-block';
 				brojac++;
 			}
-			else if(odabir==1 && Provjera(vremena[i].innerHTML)!='dan'){
-				novosti[i].style.display='none','inline-block';
-				brojac++;
+			else if(odabir==1){
+                if (d1.getDay() != d2.getDay()){
+                    novosti[i].style.display='none';
+                }
+                else
+                {
+                    novosti[i].style.display='inline-block';
+                }
 			}
-			else if(odabir==2 && Provjera(vremena[i].innerHTML)!='sedmica'){
-				novosti[i].style.display='none','inline-block';
-				brojac++;
-			}
-			else if(odabir==3 && Provjera(vremena[i].innerHTML)!='mjesec'){
-				novosti[i].style.display='none','inline-block';
-				brojac++;
-			}
+            else if(odabir==2){
+                if (d2.getDay() - d1.getDay() > 7){
+                    novosti[i].style.display='none';
+                }
+                else
+                {
+                    novosti[i].style.display='inline-block';
+                }
+            }
+            else if(odabir==3){
+                if (d2.getMonth() != d1.getMonth()){
+                    novosti[i].style.display='none';
+                }
+                else
+                {
+                    novosti[i].style.display='inline-block';
+                }
+            }
 	}
-	brojac=5425-brojac*430;
-	//document.getElementById("centralnaForma").style.height = brojac+"px";
-	//document.getElementById("footer").style.height = brojac+"px";
 }
 
 function korisnickiRacunKlik()
@@ -667,4 +679,92 @@ function urediProfilLozinka()
         xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
         xmlhttp.send(params);
     }
+}
+
+function UcitajNaslovneVijesti(){
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+        xmlhttp = new XMLHttpRequest();
+    else
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            var sveNovosti = JSON.parse(xmlhttp.responseText);
+            var novost = "";
+            var Novostii = document.getElementById("sveNovosti");
+            for (var i = 0; i < sveNovosti.length; i++)
+            {
+                var novostID = sveNovosti[i]["id"];
+                var Naslov = sveNovosti[i]["naslov"];
+                var Tekst = sveNovosti[i]["text"];
+                var Datum = sveNovosti[i]["datum"];
+                var Slika = sveNovosti[i]["slika"];
+
+                novost = "<div class='novost'>" +
+                    "<p class='vrijemeObjavee'>" + Datum + "</p>" +
+                    "<div class='lijevi'><img src=" + Slika + " alt='pisci.png'></div>" +
+                    "<div class='desni'>"+
+                    "<h2>" + Naslov + "</h2>"+
+                    "<p>" + Tekst + "</p>"+
+                    "</div>"+
+                    "</div>";
+                Novostii.innerHTML += novost;
+            }
+        }
+    };
+    xmlhttp.open("GET", "SveNovosti.php?id=*", true);
+    xmlhttp.send();
+}
+
+function UcitajDodavanjeNovosti(){
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+        xmlhttp = new XMLHttpRequest();
+    else
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            if (xmlhttp.responseText == "OK")
+            {
+                var zaglavlja = document.getElementById("zaglavlja");
+                zaglavlja.innerHTML += "<td><button class='meniDugme'><a href='DodajNovost.html'>Novosti</a></button></td>"
+            }
+        }
+    };
+    xmlhttp.open("GET", "LoginKorisnik.php?", true);
+    xmlhttp.send();
+}
+
+function kreirajNovost(){
+    var naslov = document.getElementById("naslov");
+    var komentarisanje = document.getElementById("komentarisanje");
+    var dozvola = komentarisanje.checked ? 1:0;
+    var sadrzaj = document.getElementById("tekst");
+    var slika = document.getElementById("slika");
+    var params = "naslov="+naslov.value+"&komentarisanje="+dozvola+"&text=" + sadrzaj.value+"&slika="+slika.value;
+    var xmlhttp;
+    if (window.XMLHttpRequest)
+        xmlhttp = new XMLHttpRequest();
+    else
+        xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+    xmlhttp.onreadystatechange = function()
+    {
+        if (xmlhttp.readyState == 4 && xmlhttp.status == 200)
+        {
+            if (xmlhttp.responseText == "SUCCESS")
+            {
+                alert("Uspješno ste dodali novost!");
+                window.location.href = "index.php";
+            }
+            else
+                alert("Operacija dodavanja novosti nije bila uspješna!");
+        }
+    };
+    xmlhttp.open("POST", "SveNovosti.php", true);
+    xmlhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+    xmlhttp.send(params);
 }

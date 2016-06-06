@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Društvo pisaca/Novosti</title>
+    <link rel="stylesheet" type="text/css" href="stranicaStil.css">
+    <script type="text/javascript" src="index.js"></script>
+    <script>UcitajSesiju()</script>
+    <script>UcitajNaslovneVijesti()</script>
+</head>
+<body>
+<div id="zaglavlje">
+    <p id="akcijaPrijava" onclick="korisnickiRacunKlik()">(Prijavi se)</p><p id="korisnikPrijava">Niste prijavljeni na sistem</p>
+    <table id="tabelaMeni">
+        <tr>
+            <td rowspan="2">
+                <div id="krug">
+                    <div class="pravaLinija"></div>
+                    <div class="poluKrug"></div>
+                    <div class="donjaLinija"></div>
+                    <div class="donjiPolukrug"></div>
+                </div>
+            </td>
+            <td colspan="4" id="tabelarniNaslov"><h1>DRUŠTVO PISACA BOSNE I HERCEGOVINE</h1></td>
+        </tr>
+        <tr id="zaglavlja">
+            <td><button class="meniDugme"><a href="index.php">Naslovnica</a></button></td>
+            <td><button class="meniDugme"><a href="dogadaji.php">Događaji</a></button></td>
+            <td><button class="meniDugme"><a href="linkovi.php">Linkovi</a></button></td>
+            <td><button class="meniDugme"><a href="kontakt.php">Kontakt</a></button></td>
+            <td><button class="meniDugme"><a href="Profil.php">Profil</a></button></td>
+            <td><button class="meniDugme"><a href="DodajNovost.html">Novosti</a></button></td>
+        </tr>
+    </table>
+</div>
+<div class="okvir">
+    <div id="naslovnaSlika">
+    </div>
+    <div class="centralnaForma">
+        <br>
+        <div id="novosti" >
+            <form name="FormaNovost"id="addNovost" >
+                <table>
+
+                    <tr>
+                        <td> <label> Naslov * </label></td>
+                        <td> <input type="text" id="naslov" name="naslov"><td>
+                    </tr>
+
+                    <tr>
+                        <td> <label> Tekst * </label></td>
+                        <td> <textarea id="tekst" name="tekst"> </textarea>
+                    </tr>
+                    <tr>
+                        <td> <label> Slika (URL) * </label></td>
+                        <td> <input type="text" id="slika" name="slika"><td>
+                    </tr>
+                    <tr>
+                        <td><label>Dozvoljeno komentarisanje: </label></td>
+                        <td><input type="checkbox" name="komentarisanje" id="komentarisanje"><br><br></td>
+                    </tr>
+                    <tr>
+                        <td> <br> <input type="button" value="Dodaj novost" name="dodaj" class="button" onclick="kreirajNovost()" > </td>
+                    </tr>
+                    <tr></tr>
+                    <tr></tr>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

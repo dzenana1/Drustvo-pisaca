@@ -6,6 +6,7 @@
   <link rel="stylesheet" type="text/css" href="stranicaStil.css">
     <script type="text/javascript" src="index.js"></script>
     <script>UcitajSesiju()</script>
+    <script>UcitajDodavanjeNovosti()</script>
 </head>
 <body>
   <div id="zaglavlje">
@@ -22,7 +23,7 @@
             </td>
             <td colspan="4" id="tabelarniNaslov"><h1>DRUŠTVO PISACA BOSNE I HERCEGOVINE</h1></td>
           </tr>
-          <tr>
+          <tr id="zaglavlja">
             <td><button class="meniDugme"><a href="index.php">Naslovnica</a></button></td>
             <td><button class="meniDugme"><a href="dogadaji.php">Događaji</a></button></td>
             <td><button class="meniDugme"><a href="linkovi.php">Linkovi</a></button></td>
